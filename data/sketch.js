@@ -18,24 +18,28 @@ function centerScaleCanvas(canvas){
 function setup(){
     //createCanvas(window.innerWidth, window.innerHeight);
     var canvas = createCanvas(500, 500);
-    centerScaleCanvas(canvas);
-    min.x = int(-width / 2);
+    //centerScaleCanvas(canvas);
+   /*min.x = int(-width / 2);
     min.y = int(-height / 2);
     max.x = int(width / 2);
-    max.y = int(height / 2);
+    max.y = int(height / 2);*/
 
     cPlane = new CoordinatePlane(0, 0);
 
     for(let i = 0; i < DOT_LENGTH; i++){
-        new Dot(random(min.x, max.x), random(min.y, max.y));
+        new Dot(random(width), random(height));
     }
+    let partedArray = giveParts(dots);
+    console.table(partedArray);
 }
 
 
 function draw() {
-    translate(width/2,height/2);
-    cPlane.show();
+    //translate(width/2,height/2);
+    //cPlane.show();
     dots.forEach(element => {
         element.show();
     });
+    
+
 }

@@ -10,9 +10,14 @@ PLANE_DASH_GAP = 25;
 //#endregion
 
 //#region DOT
-DOT_LENGTH = 500;
+DOT_LENGTH = 10;
 DOT_ONE = "#E7E247";
 DOT_TWO = "#044389";
 DOT_ZERO = "#EAEAEA";
 DOT_R = 10;
 //#endregion
+
+//#region OPTIMIZATION
+ROW_COUNT = 8;
+COLUMN_COUNT = 8;
+////#endregion
