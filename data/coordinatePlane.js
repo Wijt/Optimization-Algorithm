@@ -1,3 +1,5 @@
+let min = {x: null, y: null}, max = {x: null, y: null};
+
 class CoordinatePlane{
     constructor(oX, oY){
         this.origin = {x: oX, y: oY};
@@ -5,6 +7,7 @@ class CoordinatePlane{
 
     show() {
         push();
+            translate(width / 2, height / 2);
             background(PLANE_BG);
             stroke(PLANE_LINE);
             strokeWeight(PLANE_WEIGHT);

@@ -10,7 +10,7 @@ PLANE_DASH_GAP = 25;
 //#endregion
 
 //#region DOT
-DOT_LENGTH = 10;
+DOT_LENGTH = 1000;
 DOT_ONE = "#E7E247";
 DOT_TWO = "#044389";
 DOT_ZERO = "#EAEAEA";
@@ -20,4 +20,8 @@ DOT_R = 10;
 //#region OPTIMIZATION
 ROW_COUNT = 8;
 COLUMN_COUNT = 8;
-////#endregion
+//#endregion
+
+//#region PLAYER
+PLAYER_R = 20;
+//#endregion

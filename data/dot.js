@@ -2,7 +2,8 @@ class Dot{
     constructor(x, y){
         this.pos = {x: x, y: y};
         this.label = -1; //x > y ? 1 : -1;
-        dots.push(this);
+        let partIndex = getPart(x, y);
+        partedArray[partIndex].push(this);
     }
     
     show() {

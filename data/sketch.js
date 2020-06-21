@@ -1,8 +1,6 @@
 
 let cPlane;
-let dots = [];
-
-let min = {x: null, y: null}, max = {x: null, y: null};
+let partedArray = [];
 
 
 function centerScaleCanvas(canvas){
@@ -16,30 +14,51 @@ function centerScaleCanvas(canvas){
 }
 
 function setup(){
+    for (var i = 0; i < ROW_COUNT * COLUMN_COUNT; i++){
+        partedArray.push([]);
+    }
     //createCanvas(window.innerWidth, window.innerHeight);
     var canvas = createCanvas(500, 500);
     centerScaleCanvas(canvas);
-   /*min.x = int(-width / 2);
+    textAlign(CENTER, CENTER);
+    min.x = int(-width / 2);
     min.y = int(-height / 2);
     max.x = int(width / 2);
-    max.y = int(height / 2);*/
+    max.y = int(height / 2);
 
     cPlane = new CoordinatePlane(0, 0);
 
     for(let i = 0; i < DOT_LENGTH; i++){
-        new Dot(random(width), random(height));
+        new Dot(random(0,width), random(0,height));
     }
-    let partedArray = giveParts(dots);
-    console.table(partedArray);
+
 }
 
 
-function draw() {
-    //translate(width/2,height/2);
-    //cPlane.show();
-    dots.forEach(element => {
-        element.show();
+function draw() {    
+    cPlane.show();
+    
+    ellipse(mouseX, mouseY, PLAYER_R);
+    
+    let playerIndex = getPart(mouseX, mouseY);
+    partedArray[playerIndex].forEach(dot => {
+        let distance = dist(mouseX, mouseY, dot.pos.x, dot.pos.y); 
+        if(distance < DOT_R / 2 + PLAYER_R / 2){
+            console.log("hit");
+            dot.label = 1;
+        }else{
+            dot.label = -1;
+        }
+    });
+
+    partedArray.forEach(parts => {
+        parts.forEach(dot => {
+            dot.show();
+        })
     });
     
-
+    let fps = frameRate();
+    fill(255);
+    stroke(0);
+    text("FPS: " + fps.toFixed(2), 35, height - 10);
 }
