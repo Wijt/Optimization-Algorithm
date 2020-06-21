@@ -18,7 +18,7 @@ function centerScaleCanvas(canvas){
 function setup(){
     //createCanvas(window.innerWidth, window.innerHeight);
     var canvas = createCanvas(500, 500);
-    //centerScaleCanvas(canvas);
+    centerScaleCanvas(canvas);
    /*min.x = int(-width / 2);
     min.y = int(-height / 2);
     max.x = int(width / 2);
