@@ -37,14 +37,15 @@ function setup(){
 
 function draw() {    
     cPlane.show();
-    
+    drawParts();
+
     ellipse(mouseX, mouseY, PLAYER_R);
     
     let playerIndex = getPart(mouseX, mouseY);
+    console.log(playerIndex);
     partedArray[playerIndex].forEach(dot => {
         let distance = dist(mouseX, mouseY, dot.pos.x, dot.pos.y); 
         if(distance < DOT_R / 2 + PLAYER_R / 2){
-            console.log("hit");
             dot.label = 1;
         }else{
             dot.label = -1;
